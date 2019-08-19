@@ -6,10 +6,10 @@
 #
 Name     : konversation
 Version  : 1.7.5
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/konversation/1.7.5/src/konversation-1.7.5.tar.xz
 Source0  : https://download.kde.org/stable/konversation/1.7.5/src/konversation-1.7.5.tar.xz
-Source99 : https://download.kde.org/stable/konversation/1.7.5/src/konversation-1.7.5.tar.xz.sig
+Source1 : https://download.kde.org/stable/konversation/1.7.5/src/konversation-1.7.5.tar.xz.sig
 Summary  : A user-friendly and fully-featured IRC client
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -25,6 +25,7 @@ BuildRequires : knotifyconfig-dev
 BuildRequires : phonon-dev
 BuildRequires : qca-qt5-dev
 BuildRequires : qtbase-dev mesa-dev
+Patch1: 0002-Fix-build-with-Qt-5.13.patch
 
 %description
 Konversation website: http://konversation.kde.org/
@@ -76,15 +77,17 @@ locales components for the konversation package.
 
 %prep
 %setup -q -n konversation-1.7.5
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1557027857
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1566197822
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -93,11 +96,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557027857
+export SOURCE_DATE_EPOCH=1566197822
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konversation
 cp COPYING %{buildroot}/usr/share/package-licenses/konversation/COPYING
