@@ -1,5 +1,5 @@
 PKG_NAME := konversation
-URL = https://download.kde.org/stable/konversation/1.7.5/src/konversation-1.7.5.tar.xz
+URL = https://download.kde.org/stable/konversation/1.7.6/src/konversation-1.7.6.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
