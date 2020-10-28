@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x0A345FB086E797D9 (kossebau@kde.org)
 #
 Name     : konversation
-Version  : 1.7.6
-Release  : 4
-URL      : https://download.kde.org/stable/konversation/1.7.6/src/konversation-1.7.6.tar.xz
-Source0  : https://download.kde.org/stable/konversation/1.7.6/src/konversation-1.7.6.tar.xz
-Source1  : https://download.kde.org/stable/konversation/1.7.6/src/konversation-1.7.6.tar.xz.sig
+Version  : 1.7.7
+Release  : 5
+URL      : https://download.kde.org/stable/konversation/1.7.7/src/konversation-1.7.7.tar.xz
+Source0  : https://download.kde.org/stable/konversation/1.7.7/src/konversation-1.7.7.tar.xz
+Source1  : https://download.kde.org/stable/konversation/1.7.7/src/konversation-1.7.7.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -77,15 +77,15 @@ locales components for the konversation package.
 
 
 %prep
-%setup -q -n konversation-1.7.6
-cd %{_builddir}/konversation-1.7.6
+%setup -q -n konversation-1.7.7
+cd %{_builddir}/konversation-1.7.7
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602633193
+export SOURCE_DATE_EPOCH=1603857473
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -101,11 +101,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1602633193
+export SOURCE_DATE_EPOCH=1603857473
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konversation
-cp %{_builddir}/konversation-1.7.6/COPYING %{buildroot}/usr/share/package-licenses/konversation/1ee863345859657737ebbfb905e7efab7215d20b
-cp %{_builddir}/konversation-1.7.6/COPYING-DOCS %{buildroot}/usr/share/package-licenses/konversation/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/konversation-1.7.7/COPYING %{buildroot}/usr/share/package-licenses/konversation/1ee863345859657737ebbfb905e7efab7215d20b
+cp %{_builddir}/konversation-1.7.7/COPYING-DOCS %{buildroot}/usr/share/package-licenses/konversation/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -182,15 +182,24 @@ popd
 /usr/share/konversation/themes/classic/irc_op.png
 /usr/share/konversation/themes/classic/irc_owner.png
 /usr/share/konversation/themes/classic/irc_voice.png
+/usr/share/konversation/themes/default-dark/index.desktop
+/usr/share/konversation/themes/default-dark/irc_admin.svg
+/usr/share/konversation/themes/default-dark/irc_away.svg
+/usr/share/konversation/themes/default-dark/irc_away_stacked.svg
+/usr/share/konversation/themes/default-dark/irc_halfop.svg
+/usr/share/konversation/themes/default-dark/irc_normal.svg
+/usr/share/konversation/themes/default-dark/irc_op.svg
+/usr/share/konversation/themes/default-dark/irc_owner.svg
+/usr/share/konversation/themes/default-dark/irc_voice.svg
 /usr/share/konversation/themes/default/index.desktop
-/usr/share/konversation/themes/default/irc_admin.png
-/usr/share/konversation/themes/default/irc_away.png
-/usr/share/konversation/themes/default/irc_away_stacked.png
-/usr/share/konversation/themes/default/irc_halfop.png
-/usr/share/konversation/themes/default/irc_normal.png
-/usr/share/konversation/themes/default/irc_op.png
-/usr/share/konversation/themes/default/irc_owner.png
-/usr/share/konversation/themes/default/irc_voice.png
+/usr/share/konversation/themes/default/irc_admin.svg
+/usr/share/konversation/themes/default/irc_away.svg
+/usr/share/konversation/themes/default/irc_away_stacked.svg
+/usr/share/konversation/themes/default/irc_halfop.svg
+/usr/share/konversation/themes/default/irc_normal.svg
+/usr/share/konversation/themes/default/irc_op.svg
+/usr/share/konversation/themes/default/irc_owner.svg
+/usr/share/konversation/themes/default/irc_voice.svg
 /usr/share/konversation/themes/oxygen/index.desktop
 /usr/share/konversation/themes/oxygen/irc_admin.png
 /usr/share/konversation/themes/oxygen/irc_away.png
