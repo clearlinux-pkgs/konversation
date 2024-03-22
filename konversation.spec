@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konversation
-Version  : 24.02.0
-Release  : 8
-URL      : https://download.kde.org/stable/release-service/24.02.0/src/konversation-24.02.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/24.02.0/src/konversation-24.02.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/24.02.0/src/konversation-24.02.0.tar.xz.sig
+Version  : 24.02.1
+Release  : 9
+URL      : https://download.kde.org/stable/release-service/24.02.1/src/konversation-24.02.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/24.02.1/src/konversation-24.02.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/24.02.1/src/konversation-24.02.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 GPL-3.0 LGPL-2.0
@@ -89,15 +89,15 @@ locales components for the konversation package.
 
 
 %prep
-%setup -q -n konversation-24.02.0
-cd %{_builddir}/konversation-24.02.0
+%setup -q -n konversation-24.02.1
+cd %{_builddir}/konversation-24.02.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1710601129
+export SOURCE_DATE_EPOCH=1711137343
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -134,7 +134,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1710601129
+export SOURCE_DATE_EPOCH=1711137343
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konversation
 cp %{_builddir}/konversation-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/konversation/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
