@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : konversation
-Version  : 24.12.3
-Release  : 25
-URL      : https://download.kde.org/stable/release-service/24.12.3/src/konversation-24.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/24.12.3/src/konversation-24.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/24.12.3/src/konversation-24.12.3.tar.xz.sig
+Version  : 25.04.0
+Release  : 26
+URL      : https://download.kde.org/stable/release-service/25.04.0/src/konversation-25.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/25.04.0/src/konversation-25.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/25.04.0/src/konversation-25.04.0.tar.xz.sig
 Source2  : BB463350D6EF31EF.pkey
 Summary  : No detailed summary available
 Group    : Development/Tools
@@ -97,15 +97,15 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) BB463350D6EF31EF' gpg.status
-%setup -q -n konversation-24.12.3
-cd %{_builddir}/konversation-24.12.3
+%setup -q -n konversation-25.04.0
+cd %{_builddir}/konversation-25.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1744135592
+export SOURCE_DATE_EPOCH=1744952032
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -142,7 +142,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1744135592
+export SOURCE_DATE_EPOCH=1744952032
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/konversation
 cp %{_builddir}/konversation-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/konversation/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
